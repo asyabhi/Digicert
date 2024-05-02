@@ -38,5 +38,7 @@ public class StarWarsStepDefs {
 
         home.checkLastMovieName("The Phantom Menace");
         System.out.println("Last Movie Name is The Phantom Menace");
+
+        driver.quit();
     }
 }
