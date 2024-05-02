@@ -25,6 +25,12 @@ public class HomePage {
     @FindBy(css = "table tbody")
     WebElement movieTable;
 
+    @FindBy(css = "a[href='/films/2']")
+    WebElement empireStrikesBackLink;
+
+    @FindBy(css = "a[href='/films/4']")
+    WebElement phantomMenaceLink;
+
     WebDriver driver;
 
     public HomePage(WebDriver driver){
@@ -67,6 +73,14 @@ public class HomePage {
         }
 
         Assert.assertEquals(movieName, movieNames[5]);
+    }
+
+    public void clickEmpireStrikesBack(){
+        empireStrikesBackLink.click();
+    }
+
+    public void clickPhantomMenace(){
+        phantomMenaceLink.click();
     }
 
 }
