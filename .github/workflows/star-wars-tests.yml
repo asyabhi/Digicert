@@ -2,7 +2,7 @@ name: Star Wars Testing
 
 on:
   push:
-    branches: [ testing-bdd ]
+    branches: [ main ]
 
 jobs:
   run-tests:
