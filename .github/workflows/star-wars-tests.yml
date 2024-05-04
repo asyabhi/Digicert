@@ -1,17 +1,24 @@
-name: Star Wars Tests
+name: Star Wars Testing
 
 on:
   push:
-    branches: [ main ]
+    branches: [ testing-bdd ]
 
 jobs:
-  test:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 17
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: 17
-      - name: Build and test
-        run: mvn clean test
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Run tests
+        run: mvn test
