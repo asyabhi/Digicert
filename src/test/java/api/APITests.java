@@ -1,3 +1,5 @@
+package api;
+
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
